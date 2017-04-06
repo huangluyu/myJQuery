@@ -1,0 +1,16 @@
+
+$(".fullCheck").click(function () {
+    var newState = $(this).prop('checked');
+    $(this).parents('.table').find(".singleCheck").prop('checked', newState);
+});
+
+$(".singleCheck").click(function () {
+    var fullCheckKey = true;
+    $(this).parents('.table').find(".singleCheck").each(function () {
+        if (!$(this).prop('checked')) {
+            fullCheckKey = false;
+            return false;
+        }
+    });
+    $(this).parents('.table').find(".fullCheck").prop('checked', fullCheckKey);
+});
